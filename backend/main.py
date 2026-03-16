@@ -1,5 +1,5 @@
 """
-FraudShield Backend — FastAPI
+FraudGuard Backend — FastAPI
 Run: uvicorn backend.main:app --reload --port 8000
 """
 from fastapi import FastAPI, HTTPException
@@ -132,10 +132,10 @@ def build_siem_logs(txn_id: str, result: dict, d: TransactionIn):
         "source": {"vpn": bool(d.vpn), "hour": d.hour},
         "behavioral": {"velocity": d.velocity, "pin_fails": d.pin_fails},
         "alert_id": str(uuid.uuid4()),
-        "model": "UPI-FraudShield-v1.0"
+        "model": "UPI-FraudGuard-v1.0"
     }
     cef_line = (
-        f"CEF:0|UPI-FraudShield|AIDetector|1.0|UPI_FRAUD_ALERT|"
+        f"CEF:0|UPI-FraudGuard|AIDetector|1.0|UPI_FRAUD_ALERT|"
         f"Fraudulent UPI Transaction|{sev_num}|"
         f"suser={d.sender_upi} duser={d.receiver_upi} "
         f"amt={d.amount} txnId={txn_id} "
