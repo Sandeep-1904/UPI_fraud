@@ -333,10 +333,10 @@ function logToSIEM(r, d) {
     source: { vpn: !!d.vpn, hour: d.hour },
     behavioral: { velocity: d.velocity, pin_fails: d.pin_fails },
     alert_id: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substr(2,16),
-    model: 'UPI-FraudShield-v1.0'
+    model: 'UPI-FraudGuard-v1.0'
   };
   const sevNum = { CRITICAL:10, HIGH:7, MEDIUM:5, LOW:3 }[r.severity] || 5;
-  const cefLine = `CEF:0|UPI-FraudShield|AIDetector|1.0|UPI_FRAUD_ALERT|Fraudulent UPI Transaction|${sevNum}|` +
+  const cefLine = `CEF:0|UPI-FraudGuard|AIDetector|1.0|UPI_FRAUD_ALERT|Fraudulent UPI Transaction|${sevNum}|` +
     `src=DEVICE suser=${d.sender_upi} duser=${d.receiver_upi} amt=${d.amount} txnId=${r.txn_id} ` +
     `fraudProb=${r.fraud_probability.toFixed(4)} riskScore=${r.risk_score} reason=${r.reason}`;
 
