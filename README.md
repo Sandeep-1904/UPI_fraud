@@ -1,4 +1,4 @@
-# FraudShield — UPI Fraud Detection Web App
+# FraudGuard — UPI Fraud Detection Web App
 
 ## Project Structure
 ```
