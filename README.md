@@ -1,5 +1,4 @@
-# FraudGuard — UPI Fraud Detection Web App
-
+# FraudGuard — UPI Fraud Detection 
 ## Project Structure
 ```
 upi_fraud_app/
